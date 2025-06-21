@@ -25,6 +25,26 @@ xml_tree.SubElement(channel_element,'itunes:image',{'href': link + yaml_data['im
 xml_tree.SubElement(channel_element,'languge').text =yaml_data['language']
 xml_tree.SubElement(channel_element,'link').text =link
 # xml_tree.SubElement(channel_element,'title').text =yaml_data['title']
+xml_tree.SubElement(channel_element,'itunes:cateogory',{'text':yaml_data['category']}) 
+
+#here we created an box for the list of items which are present in out yaml data.
+for item in yaml_data['item']:
+    item_element = xml_tree.SubElement(channel_element,'item')
+    xml_tree.SubElement(item_element,'title').text =item['title']
+    xml_tree.SubElement(item_element,'itunes:author').text =yaml_data['author']
+    xml_tree.SubElement(item_element,'description').text =item['description']
+    xml_tree.SubElement(item_element,'itunes:duration').text =item['duration']
+    xml_tree.SubElement(item_element,'published').text =item['published']
+    xml_tree.SubElement(item_element,'title').text =item['title']
+    xml_tree.SubElement(item_element,'title').text =item['title']
+
+    enclosure = xml_tree.SubElement(item_element,'enclosure',{
+        'url': link +item['file'],
+        'type ': 'audio/mpeg',
+        'length' : item['length']
+
+
+    })
 
 
 output_tree =xml_tree.ElementTree(rss_element)
