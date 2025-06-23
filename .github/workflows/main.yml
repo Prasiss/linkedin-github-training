@@ -7,7 +7,7 @@ jobs :
       - name: Checkout Repo
         uses: actions/checkout@v3
       - name: Run fee Generator
-        uses: Prasiss/linkedin-github-training@main
+        uses: Prasiss/podcast-generator@main
         
         
       
