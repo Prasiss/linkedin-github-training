@@ -6,7 +6,7 @@ jobs :
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
-      - name: Run fee Generator
+      - name: Run feed Generator
         uses: Prasiss/podcast-generator@main
         
         
